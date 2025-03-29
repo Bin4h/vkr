@@ -39,3 +39,4 @@ C:\Users\marii\Documents\vkr\vkr\obj\Debug\net8.0\refint\vkr.dll
 C:\Users\marii\Documents\vkr\vkr\obj\Debug\net8.0\vkr.pdb
 C:\Users\marii\Documents\vkr\vkr\obj\Debug\net8.0\vkr.genruntimeconfig.cache
 C:\Users\marii\Documents\vkr\vkr\obj\Debug\net8.0\ref\vkr.dll
+C:\Users\marii\Documents\vkr\vkr\obj\Debug\net8.0\vkr.sourcelink.json

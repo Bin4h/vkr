@@ -31,15 +31,17 @@ namespace vkr.Services
         /// Загрузка файла на Яндекс диск
         /// </summary>
         /// <param name="filePath">Путь к файлу на Яндекс диске</param>
-        /// <param name="fileContent">Содержимое файла в виде массива байтов</param>
+        /// <param name="localFilePath">Содержимое файла в виде массива байтов</param>
         /// <returns>Результат загрузки</returns>
-        public async Task<string> UploadFile(string filePath, byte[] fileContent)
+        public async Task<string> UploadFile(string filePath, string localFilePath)
         {
-            var uploadUrlResponse = await _httpClient.GetAsync($"{_apiUrl}resources/upload?path={filePath}&overwrite=true"); // URL для загрузки файла
+            var uploadUrlResponse = await _httpClient.GetAsync($"{_apiUrl}resources/upload?path={filePath}&overwrite=true&fields=name,_embedded.items.path"); // URL для загрузки файла
             uploadUrlResponse.EnsureSuccessStatusCode(); // Статус запроса
 
             // Десериализация ответа с адресом для загрузки
             var uploadUrl = JsonConvert.DeserializeObject<YandexDiskUploadResponse>(await uploadUrlResponse.Content.ReadAsStringAsync()).Href;
+
+            byte[] fileContent = File.ReadAllBytes(localFilePath);
 
             var content = new ByteArrayContent(fileContent); // Загрузка файла по полученному URL
             var uploadResponse = await _httpClient.PutAsync(uploadUrl, content);

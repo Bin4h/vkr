@@ -9,6 +9,8 @@ namespace vkr
             services.AddControllers().AddNewtonsoftJson();
             services.AddHttpClient();
             services.AddSingleton<YandexDiskService>();
+            services.AddSingleton<DropboxService>();
+            services.AddSingleton<GoogleDriveService>();
         }
     }
 }

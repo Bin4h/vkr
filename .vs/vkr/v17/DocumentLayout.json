@@ -3,28 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\marii\\Documents\\vkr\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\services\\googledriveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\services\\googledriveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\controllers\\googledrivecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\controllers\\googledrivecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\controllers\\yandexdiskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\controllers\\yandexdiskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\services\\dropboxservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\services\\dropboxservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\services\\yandexdiskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\services\\yandexdiskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\controllers\\dropboxcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\controllers\\dropboxcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|c:\\users\\marii\\documents\\vkr\\vkr\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA712865-E072-4A39-A199-59F2DDEAA721}|vkr\\vkr.csproj|solutionrelative:vkr\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,63 +54,120 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "YandexDiskController.cs",
-              "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Controllers\\YandexDiskController.cs",
-              "RelativeDocumentMoniker": "vkr\\Controllers\\YandexDiskController.cs",
-              "ToolTip": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Controllers\\YandexDiskController.cs",
-              "RelativeToolTip": "vkr\\Controllers\\YandexDiskController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAWAAAA",
+              "Title": "GoogleDriveController.cs",
+              "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Controllers\\GoogleDriveController.cs",
+              "RelativeDocumentMoniker": "vkr\\Controllers\\GoogleDriveController.cs",
+              "ToolTip": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Controllers\\GoogleDriveController.cs",
+              "RelativeToolTip": "vkr\\Controllers\\GoogleDriveController.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwDEAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T12:07:58.412Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-29T11:14:26.493Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Startup.cs",
-              "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Startup.cs",
-              "RelativeDocumentMoniker": "vkr\\Startup.cs",
-              "ToolTip": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Startup.cs",
-              "RelativeToolTip": "vkr\\Startup.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAfAAAA",
+              "Title": "GoogleDriveService.cs",
+              "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Services\\GoogleDriveService.cs",
+              "RelativeDocumentMoniker": "vkr\\Services\\GoogleDriveService.cs",
+              "ToolTip": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Services\\GoogleDriveService.cs",
+              "RelativeToolTip": "vkr\\Services\\GoogleDriveService.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAhwBcAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T12:06:00.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-29T11:14:05.608Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "vkr\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "vkr\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T08:56:28.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DropboxController.cs",
+              "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Controllers\\DropboxController.cs",
+              "RelativeDocumentMoniker": "vkr\\Controllers\\DropboxController.cs",
+              "ToolTip": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Controllers\\DropboxController.cs",
+              "RelativeToolTip": "vkr\\Controllers\\DropboxController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T08:56:01.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DropboxService.cs",
+              "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Services\\DropboxService.cs",
+              "RelativeDocumentMoniker": "vkr\\Services\\DropboxService.cs",
+              "ToolTip": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Services\\DropboxService.cs",
+              "RelativeToolTip": "vkr\\Services\\DropboxService.cs",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAwwCUAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T14:38:18.373Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "YandexDiskService.cs",
               "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Services\\YandexDiskService.cs",
               "RelativeDocumentMoniker": "vkr\\Services\\YandexDiskService.cs",
               "ToolTip": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Services\\YandexDiskService.cs",
               "RelativeToolTip": "vkr\\Services\\YandexDiskService.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwE8AAABIAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABkAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T12:03:19.661Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T12:03:19.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "YandexDiskController.cs",
+              "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Controllers\\YandexDiskController.cs",
+              "RelativeDocumentMoniker": "vkr\\Controllers\\YandexDiskController.cs",
+              "ToolTip": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Controllers\\YandexDiskController.cs",
+              "RelativeToolTip": "vkr\\Controllers\\YandexDiskController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T12:07:58.412Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Startup.cs",
+              "RelativeDocumentMoniker": "vkr\\Startup.cs",
+              "ToolTip": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Startup.cs",
+              "RelativeToolTip": "vkr\\Startup.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T12:06:00.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\appsettings.json",
               "RelativeDocumentMoniker": "vkr\\appsettings.json",
               "ToolTip": "C:\\Users\\marii\\Documents\\vkr\\vkr\\appsettings.json",
               "RelativeToolTip": "vkr\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-03-07T12:00:22.29Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "ErrorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Models\\ErrorViewModel.cs",
               "RelativeDocumentMoniker": "vkr\\Models\\ErrorViewModel.cs",
@@ -98,21 +175,19 @@
               "RelativeToolTip": "vkr\\Models\\ErrorViewModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T11:57:25.437Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T11:57:25.437Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Program.cs",
               "RelativeDocumentMoniker": "vkr\\Program.cs",
               "ToolTip": "C:\\Users\\marii\\Documents\\vkr\\vkr\\Program.cs",
               "RelativeToolTip": "vkr\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAABMAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABEAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T11:57:20.697Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-07T11:57:20.697Z"
             }
           ]
         }

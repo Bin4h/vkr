@@ -39,3 +39,12 @@ C:\Users\marii\Documents\vkr\vkr\obj\Debug\net8.0\refint\vkr.dll
 C:\Users\marii\Documents\vkr\vkr\obj\Debug\net8.0\vkr.pdb
 C:\Users\marii\Documents\vkr\vkr\obj\Debug\net8.0\vkr.genruntimeconfig.cache
 C:\Users\marii\Documents\vkr\vkr\obj\Debug\net8.0\ref\vkr.dll
+C:\Users\marii\Documents\vkr\vkr\obj\Debug\net8.0\vkr.sourcelink.json
+C:\Users\marii\Documents\vkr\vkr\bin\Debug\net8.0\Google.Apis.dll
+C:\Users\marii\Documents\vkr\vkr\bin\Debug\net8.0\Google.Apis.Auth.dll
+C:\Users\marii\Documents\vkr\vkr\bin\Debug\net8.0\Google.Apis.Core.dll
+C:\Users\marii\Documents\vkr\vkr\bin\Debug\net8.0\Google.Apis.Drive.v3.dll
+C:\Users\marii\Documents\vkr\vkr\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\marii\Documents\vkr\vkr\bin\Debug\net8.0\System.Management.dll
+C:\Users\marii\Documents\vkr\vkr\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Management.dll
+C:\Users\marii\Documents\vkr\vkr\bin\Debug\net8.0\credentials.json

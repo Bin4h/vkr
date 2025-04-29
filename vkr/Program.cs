@@ -14,6 +14,14 @@ builder.Services.AddSwaggerGen(options =>
         Description = "Vkr",
     });
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowVueApp",
+        policy => policy.WithOrigins("http://localhost:5173") 
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+});
+
 
 Startup.ConfigureServices(builder.Services);
 var app = builder.Build();
@@ -33,6 +41,8 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseCors("AllowVueApp");
 
 app.UseRouting();
 

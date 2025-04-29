@@ -19,12 +19,12 @@ namespace vkr.Controllers
         /// Метод для загрузки файла на Яндекс диск
         /// </summary>
         /// <param name="filePath">Путь для сохранения файла на диске</param>
-        /// <param name="fileContent">Содержимое файла в виде массива байтов</param>
+        /// <param name="localFilePath">Содержимое файла в виде массива байтов</param>
         /// <returns>Статус запроса</returns>
         [HttpPost("upload")]
-        public async Task<IActionResult> UploadFile(string filePath, [FromBody] byte[] fileContent)
+        public async Task<IActionResult> UploadFile(string filePath, string localFilePath)
         {
-            var result = await _yandexDiskService.UploadFile(filePath, fileContent);
+            var result = await _yandexDiskService.UploadFile(filePath, localFilePath);
             return Ok(result);
         }
         /// <summary>

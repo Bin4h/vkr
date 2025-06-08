@@ -1,4 +1,4 @@
-﻿using System.Security.Cryptography;
+using System.Security.Cryptography;
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 Console.WriteLine("Введите путь к файлу ");
@@ -105,66 +105,20 @@ byte[] data_13_parity = await File.ReadAllBytesAsync(cur_filepath);
 // Подгружаются разделенные данные
 
 cur_fileName = fileName + "_1";
-
 cur_filepath = Path.Combine(dir, cur_fileName);
-
 byte[] data_11 = await File.ReadAllBytesAsync(cur_filepath);
 
 cur_fileName = fileName + "_2";
-
 cur_filepath = Path.Combine(dir, cur_fileName);
-
 byte[] data_22 = await File.ReadAllBytesAsync(cur_filepath);
 
 cur_fileName = fileName + "_3";
-
 cur_filepath = Path.Combine(dir, cur_fileName);
-
 byte[] data_33 = await File.ReadAllBytesAsync(cur_filepath);
 
-Console.WriteLine("Результат проверки 1 разделенной части и восстановленной при помощи массива чётности: ");
-
 byte[] data_1_recovered = SolveParity(data_12_parity, data_22);
-
-string hashOriginal = GetSha256(data_11);
-string hashRestored = GetSha256(data_1_recovered);
-
-if (hashOriginal == hashRestored)
-{
-    Console.WriteLine("Изначальный и восстановленный Hash совпадает");
-}
-else
-{
-    Console.WriteLine("Изначальный и восстановленный Hash не совпадает");
-}
-Console.WriteLine("Результат проверки 2 разделенной части и восстановленной при помощи массива чётности: ");
 byte[] data_2_recovered = SolveParity(data_23_parity, data_33);
-
-hashOriginal = GetSha256(data_22);
-hashRestored = GetSha256(data_2_recovered);
-
-if (hashOriginal == hashRestored)
-{
-    Console.WriteLine("Изначальный и восстановленный Hash совпадает");
-}
-else
-{
-    Console.WriteLine("Изначальный и восстановленный Hash не совпадает");
-}
-Console.WriteLine("Результат проверки 3 разделенной части и восстановленной при помощи массива чётности: ");
 byte[] data_3_recovered = SolveParity(data_13_parity, data_11);
-
-hashOriginal = GetSha256(data_33);
-hashRestored = GetSha256(data_3_recovered);
-
-if (hashOriginal == hashRestored)
-{
-    Console.WriteLine("Изначальный и восстановленный Hash совпадает");
-}
-else
-{
-    Console.WriteLine("Изначальный и восстановленный Hash не совпадает");
-}
 
 j = 0;
 
@@ -186,23 +140,10 @@ for (int i = 0; i < data_3_recovered.Length - reduce; i++)
     j++;
 }
 
-Console.WriteLine("Результат проверки полученного из восстановленных частей файла и изначального файла: ");
-
-hashOriginal = GetSha256(fileContent);
-hashRestored = GetSha256(data_recovered);
-
 cur_fileName = fileName + "_final_recovered";
-
 await File.WriteAllBytesAsync(Path.Combine(dir, cur_fileName), data_recovered);
 
-if (hashOriginal == hashRestored)
-{
-    Console.WriteLine("Изначальный и восстановленный Hash совпадает");
-}
-else
-{
-    Console.WriteLine("Изначальный и восстановленный Hash не совпадает");
-}
+Console.WriteLine("Файлы успешно разделены в виде набора байтов");
 
 byte[] SolveParity(byte[] data_1, byte[] data_2)
 {

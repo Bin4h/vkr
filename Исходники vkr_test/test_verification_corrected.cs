@@ -1,4 +1,4 @@
-﻿
+
 using System.Security.Cryptography;
 using System.Text;
 
@@ -13,6 +13,37 @@ string response3 = "2";
 string file1Path = "";
 string file2Path = "";
 string file3Path = "";
+
+
+string configDir = Directory.GetCurrentDirectory();
+string configPath = Path.Combine(configDir, "Config.txt");
+string configContent = "";
+if (File.Exists(configPath))
+{
+    configContent = File.ReadAllText(configPath);
+}
+else
+{
+    Console.WriteLine("Введите путь к ключу(Config.txt)");
+    string keyPath = Console.ReadLine();
+    configContent = File.ReadAllText(keyPath);
+}
+bool isFound = false;
+string numberString = "";
+for (int i = 0; i < configContent.Length; i++)
+{
+    
+    if (isFound == true)
+    {
+        numberString += configContent[i];
+    }
+    if (configContent[i] == '\n')
+        isFound = true;
+}
+
+string[] partsConfig = numberString.Split(',');
+
+
 Console.WriteLine("Есть ли доступ к 1 файлу?(1.Да 2.Нет)");
 response1 = Console.ReadLine();
 if (response1 == "1")
@@ -52,53 +83,23 @@ if (response1 == "2")
 
     byte[] data_3_final = await File.ReadAllBytesAsync(file3Path);
 
-    byte[] reduce_bytes = new byte[18];
-    byte[] decipher_bites_1 = new byte[18];
-    int j = 0;
-    for(int i = data_2_final.Length - 18; i < data_2_final.Length; i++)
-    {
-        reduce_bytes[j] = data_2_final[i];
-        j++;
-    }
-    int reduced_size = 0;
-    for(int i = reduce_bytes.Length - 1; i > 0; i--)
-    {
-        if (reduce_bytes[i] == 0)
-            reduced_size++;
-        else break;
-    }
-    byte[] decipher_bites_11 = new byte[decipher_bites_1.Length - reduced_size];
-    for (int i = 0; i < decipher_bites_11.Length; i++)
-    {
-        decipher_bites_11[i] = reduce_bytes[i];
-        j++;
-    }
-    j = 0;
-    for (int i = data_2_final.Length - 36; i < data_2_final.Length - 18; i++)
-    {
-        decipher_bites_1[j] = data_2_final[i];
-        j++;
-    }
-    byte[] decipher_bites_12 = new byte[decipher_bites_1.Length - reduced_size];
-    for (int i = 0; i < decipher_bites_12.Length; i++)
-    {
-        if(i < decipher_bites_1.Length)
-        decipher_bites_12[i] = decipher_bites_1[i];
-        j++;
-    }
-    byte[] deciphered_bites_1 = SolveParity(decipher_bites_12, decipher_bites_11);
-    string combinedString = Encoding.UTF8.GetString(deciphered_bites_1).Replace("\0", "");
-    string[] parts = combinedString.Split('!');
+    
     string extention = "";
-    int reduce = int.Parse(parts[3]);
-    int part_size_a = int.Parse(parts[0]);
-    int part_size_b = int.Parse(parts[1]);
-    int part_size_c = int.Parse(parts[2]);
+    int part_size_a = data_2_final.Length / 100 * int.Parse(partsConfig[0]);
+    int part_size_b = data_2_final.Length / 100 * int.Parse(partsConfig[1]);
+    int part_size_c = 0;
+    int reduce = 0;
+    if (data_3_final[data_3_final.Length - 1] == 0)
+        reduce = 1;
+    if (part_size_a + part_size_b < data_2_final.Length * 2)
+    {
+        part_size_c += (int)Math.Ceiling((data_2_final.Length * 2 - (part_size_a + part_size_b) * 2) / 2.0);
+    }
 
 
     // Собрка файла с восстановлнием
 
-    j = 0;
+    int j = 0;
     byte[] data_2 = new byte[part_size_a];
     for (int i = 0; i < data_2.Length; i++)
     {
@@ -111,8 +112,8 @@ if (response1 == "2")
         data_34_parity[i] = data_2_final[j];
         j++;
     }
-    byte[] data_5 = new byte[part_size_c - 18];
-    for (int i = 0; i < part_size_c - 18; i++)
+    byte[] data_5 = new byte[part_size_c];
+    for (int i = 0; i < part_size_c; i++)
     {
         data_5[i] = data_2_final[j];
         j++;
@@ -131,8 +132,8 @@ if (response1 == "2")
         data_4[i] = data_3_final[j];
         j++;
     }
-    byte[] data_6 = new byte[part_size_c - 18];
-    for (int i = 0; i < part_size_c - 18; i++)
+    byte[] data_6 = new byte[part_size_c];
+    for (int i = 0; i < part_size_c; i++)
     {
         data_6[i] = data_3_final[j];
         j++;
@@ -142,7 +143,7 @@ if (response1 == "2")
     byte[] data_3 = SolveParity(data_4, data_34_parity);
 
 
-    byte[] data = new byte[(part_size_a + part_size_b + part_size_c - 18) * 2 - reduce];
+    byte[] data = new byte[(part_size_a + part_size_b + part_size_c) * 2 - reduce];
     j = 0;
     for (int i = 0; i < data_1.Length; i++)
     {
@@ -197,52 +198,21 @@ else if(response2 == "2")
 
     byte[] data_3_final = await File.ReadAllBytesAsync(file3Path);
 
-    byte[] reduce_bytes = new byte[18];
-    byte[] decipher_bites_1 = new byte[18];
-    int j = 0;
-    for (int i = data_1_final.Length - 18; i < data_1_final.Length; i++)
-    {
-        reduce_bytes[j] = data_1_final[i];
-        j++;
-    }
-    int reduced_size = 0;
-    for (int i = reduce_bytes.Length - 1; i > 0; i--)
-    {
-        if (reduce_bytes[i] == 0)
-            reduced_size++;
-        else break;
-    }
-    byte[] decipher_bites_11 = new byte[decipher_bites_1.Length - reduced_size];
-    for (int i = 0; i < decipher_bites_11.Length; i++)
-    {
-        decipher_bites_11[i] = reduce_bytes[i];
-        j++;
-    }
-    j = 0;
-    for (int i = data_1_final.Length - 36; i < data_1_final.Length - 18; i++)
-    {
-        decipher_bites_1[j] = data_1_final[i];
-        j++;
-    }
-    byte[] decipher_bites_12 = new byte[decipher_bites_1.Length - reduced_size];
-    for (int i = 0; i < decipher_bites_12.Length; i++)
-    {
-        if (i < decipher_bites_1.Length)
-            decipher_bites_12[i] = decipher_bites_1[i];
-        j++;
-    }
-    byte[] deciphered_bites_1 = SolveParity(decipher_bites_12, decipher_bites_11);
-    string combinedString = Encoding.UTF8.GetString(deciphered_bites_1).Replace("\0", "");
-    string[] parts = combinedString.Split('!');
     string extention = "";
-    int reduce = int.Parse(parts[3]);
-    int part_size_a = int.Parse(parts[0]);
-    int part_size_b = int.Parse(parts[1]);
-    int part_size_c = int.Parse(parts[2]);
+    int part_size_a = data_1_final.Length / 100 * int.Parse(partsConfig[0]);
+    int part_size_b = data_1_final.Length / 100 * int.Parse(partsConfig[1]);
+    int part_size_c = 0;
+    int reduce = 0;
+    if (data_3_final[data_3_final.Length - 1] == 0)
+        reduce = 1;
+    if (part_size_a + part_size_b < data_1_final.Length * 2)
+    {
+        part_size_c += (int)Math.Ceiling((data_1_final.Length * 2 - (part_size_a + part_size_b) * 2) / 2.0);
+    }
 
     // Восстановление файла
-    byte[] data = new byte[(part_size_a + part_size_b + part_size_c - 18) * 2 - reduce];
-    j = 0;
+    byte[] data = new byte[(part_size_a + part_size_b + part_size_c) * 2 - reduce];
+    int j = 0;
 
     byte[] data_1 = new byte[part_size_a];
     for (int i = 0; i < part_size_a; i++)
@@ -256,8 +226,8 @@ else if(response2 == "2")
         data_3[i] = data_1_final[j];
         j++;
     }
-    byte[] data_56_parity = new byte[part_size_c - 18];
-    for (int i = 0; i < part_size_c - 18; i++)
+    byte[] data_56_parity = new byte[part_size_c];
+    for (int i = 0; i < part_size_c; i++)
     {
         data_56_parity[i] = data_1_final[j];
         j++;
@@ -276,8 +246,8 @@ else if(response2 == "2")
         data_4[i] = data_3_final[j];
         j++;
     }
-    byte[] data_6 = new byte[part_size_c - 18];
-    for (int i = 0; i < part_size_c - 18; i++)
+    byte[] data_6 = new byte[part_size_c];
+    for (int i = 0; i < part_size_c; i++)
     {
         data_6[i] = data_3_final[j];
         j++;
@@ -339,52 +309,19 @@ else if(response2 == "2")
 
     byte[] data_2_final = await File.ReadAllBytesAsync(file2Path);
 
-    byte[] reduce_bytes = new byte[18];
-    byte[] decipher_bites_1 = new byte[18];
-    int j = 0;
-    for (int i = data_1_final.Length - 18; i < data_1_final.Length; i++)
-    {
-        reduce_bytes[j] = data_1_final[i];
-        j++;
-    }
-    int reduced_size = 0;
-    for (int i = reduce_bytes.Length - 1; i > 0; i--)
-    {
-        if (reduce_bytes[i] == 0)
-            reduced_size++;
-        else break;
-    }
-    byte[] decipher_bites_11 = new byte[decipher_bites_1.Length - reduced_size];
-    for (int i = 0; i < decipher_bites_11.Length; i++)
-    {
-        decipher_bites_11[i] = reduce_bytes[i];
-        j++;
-    }
-    j = 0;
-    for (int i = data_1_final.Length - 36; i < data_1_final.Length - 18; i++)
-    {
-        decipher_bites_1[j] = data_1_final[i];
-        j++;
-    }
-    byte[] decipher_bites_12 = new byte[decipher_bites_1.Length - reduced_size];
-    for (int i = 0; i < decipher_bites_12.Length; i++)
-    {
-        if (i < decipher_bites_1.Length)
-            decipher_bites_12[i] = decipher_bites_1[i];
-        j++;
-    }
-    byte[] deciphered_bites_1 = SolveParity(decipher_bites_12, decipher_bites_11);
-    string combinedString = Encoding.UTF8.GetString(deciphered_bites_1).Replace("\0", "");
-    string[] parts = combinedString.Split('!');
     string extention = "";
-    int reduce = int.Parse(parts[3]);
-    int part_size_a = int.Parse(parts[0]);
-    int part_size_b = int.Parse(parts[1]);
-    int part_size_c = int.Parse(parts[2]);
+    int part_size_a = data_1_final.Length / 100 * int.Parse(partsConfig[0]);
+    int part_size_b = data_1_final.Length / 100 * int.Parse(partsConfig[1]);
+    int part_size_c = 0;
+
+    if (part_size_a + part_size_b < data_1_final.Length * 2)
+    {
+        part_size_c += (int)Math.Ceiling((data_1_final.Length * 2 - (part_size_a + part_size_b) * 2) / 2.0);
+    }
 
     // Восстановление файла
-    byte[] data = new byte[(part_size_a + part_size_b + part_size_c - 18) * 2 - reduce];
-    j = 0;
+
+    int j = 0;
     byte[] data_1 = new byte[part_size_a];
     for (int i = 0; i < part_size_a; i++)
     {
@@ -397,8 +334,8 @@ else if(response2 == "2")
         data_3[i] = data_1_final[j];
         j++;
     }
-    byte[] data_56_parity = new byte[part_size_c - 18];
-    for (int i = 0; i < part_size_c - 18; i++)
+    byte[] data_56_parity = new byte[part_size_c];
+    for (int i = 0; i < part_size_c; i++)
     {
         data_56_parity[i] = data_1_final[j];
         j++;
@@ -417,8 +354,8 @@ else if(response2 == "2")
         data_34_parity[i] = data_2_final[j];
         j++;
     }
-    byte[] data_5 = new byte[part_size_c - 18];
-    for (int i = 0; i < part_size_c - 18; i++)
+    byte[] data_5 = new byte[part_size_c];
+    for (int i = 0; i < part_size_c; i++)
     {
         data_5[i] = data_2_final[j];
         j++;
@@ -427,6 +364,10 @@ else if(response2 == "2")
 
     byte[] data_4 = SolveParity(data_3, data_34_parity);
     byte[] data_6 = SolveParity(data_5, data_56_parity);
+    int reduce = 0;
+    if (data_6[data_6.Length - 1] == 0)
+        reduce = 1;
+    byte[] data = new byte[(part_size_a + part_size_b + part_size_c) * 2 - reduce];
 
     j = 0;
     for (int i = 0; i < data_1.Length; i++)
@@ -476,52 +417,23 @@ else if(response2 == "2")
 
     byte[] data_3_final = await File.ReadAllBytesAsync(file3Path);
 
-    byte[] reduce_bytes = new byte[18];
-    byte[] decipher_bites_1 = new byte[18];
-    int j = 0;
-    for (int i = data_2_final.Length - 18; i < data_2_final.Length; i++)
-    {
-        reduce_bytes[j] = data_2_final[i];
-        j++;
-    }
-    int reduced_size = 0;
-    for (int i = reduce_bytes.Length - 1; i > 0; i--)
-    {
-        if (reduce_bytes[i] == 0)
-            reduced_size++;
-        else break;
-    }
-    byte[] decipher_bites_11 = new byte[decipher_bites_1.Length - reduced_size];
-    for (int i = 0; i < decipher_bites_11.Length; i++)
-    {
-        decipher_bites_11[i] = reduce_bytes[i];
-        j++;
-    }
-    j = 0;
-    for (int i = data_2_final.Length - 36; i < data_2_final.Length - 18; i++)
-    {
-        decipher_bites_1[j] = data_2_final[i];
-        j++;
-    }
-    byte[] decipher_bites_12 = new byte[decipher_bites_1.Length - reduced_size];
-    for (int i = 0; i < decipher_bites_12.Length; i++)
-    {
-        if (i < decipher_bites_1.Length)
-            decipher_bites_12[i] = decipher_bites_1[i];
-        j++;
-    }
-    byte[] deciphered_bites_1 = SolveParity(decipher_bites_12, decipher_bites_11);
-    string combinedString = Encoding.UTF8.GetString(deciphered_bites_1).Replace("\0", "");
-    string[] parts = combinedString.Split('!');
     string extention = "";
-    int reduce = int.Parse(parts[3]);
-    int part_size_a = int.Parse(parts[0]);
-    int part_size_b = int.Parse(parts[1]);
-    int part_size_c = int.Parse(parts[2]);
+    int part_size_a = data_1_final.Length / 100 * int.Parse(partsConfig[0]);
+    int part_size_b = data_1_final.Length / 100 * int.Parse(partsConfig[1]);
+    int part_size_c = 0;
 
-    byte[] data = new byte[(part_size_a + part_size_b + part_size_c - 18) * 2 - reduce];
+    int reduce = 0;
+    if (data_3_final[data_3_final.Length - 1] == 0)
+        reduce = 1;
+
+    if (part_size_a + part_size_b < data_1_final.Length * 2)
+    {
+        part_size_c += (int)Math.Ceiling((data_1_final.Length * 2 - (part_size_a + part_size_b) * 2) / 2.0);
+    }
+
+    byte[] data = new byte[(part_size_a + part_size_b + part_size_c) * 2 - reduce];
     // Сборка файла из частей
-    j = 0;
+    int j = 0;
     byte[] data_1 = new byte[part_size_a];
     for (int i = 0; i < part_size_a; i++)
     {
@@ -547,8 +459,8 @@ else if(response2 == "2")
         par_data_2[i] = data_2_final[j];
         j++;
     }
-    byte[] data_5 = new byte[part_size_c - 18];
-    for (int i = 0; i < part_size_c - 18; i++)
+    byte[] data_5 = new byte[part_size_c];
+    for (int i = 0; i < part_size_c; i++)
     {
         data_5[i] = data_2_final[j];
         j++;
@@ -566,8 +478,8 @@ else if(response2 == "2")
         data_4[i] = data_3_final[j];
         j++;
     }
-    byte[] data_6 = new byte[part_size_c - 18];
-    for (int i = 0; i < part_size_c - 18; i++)
+    byte[] data_6 = new byte[part_size_c];
+    for (int i = 0; i < part_size_c; i++)
     {
         data_6[i] = data_3_final[j];
         j++;

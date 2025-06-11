@@ -1,4 +1,4 @@
-﻿using System.Security.Cryptography;
+using System.Security.Cryptography;
 using System.Text;
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 // Запрос пути к файлу
@@ -198,12 +198,6 @@ for (int i = 0; i < 18; i++)
     }
 }
 
-for (int i = 0; i < byteArray.Length; i++)
-{
-    data_1_final[j] = data_syphered_1[i];
-    j++;
-}
-
 byte[] data_2_final = new byte[part_size_a + part_size_b + part_size_c];
 j = 0;
 
@@ -314,12 +308,6 @@ for (int i = 0; i < 18; i++)
         data_3_final[j] = 0;
         j++;
     }
-}
-
-for (int i = 0; i < byteArray.Length; i++)
-{
-    data_3_final[j] = data_syphered_3[i];
-    j++;
 }
 
 string dir = Directory.GetCurrentDirectory();

@@ -2,29 +2,42 @@ using System.Security.Cryptography;
 using System.Text;
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 // Запрос пути к файлу
-Console.WriteLine("Введите путь к файлу ");
+
+Console.WriteLine("Введите путь к файлу");
 string filePath = Console.ReadLine();
 // Считывание файла в виде набора байт
 byte[] fileContent = await File.ReadAllBytesAsync(filePath);
 int reduce = 0;
 
-Console.WriteLine("Введите делитель для первого среза (например что бы он занимал 1/5 введите 5)");
+string configDir = Directory.GetCurrentDirectory();
+string configPath = Path.Combine(configDir, "Config.txt");
+string configContent = File.ReadAllText(configPath);
+bool isFound = false;
+string numberString = "";
+for(int i = 0; i < configContent.Length; i++)
+{
+    if (configContent[i] == '\n')
+        isFound = true;
+    if(isFound == true)
+    {
+        numberString += configContent[i];
+    }
+}
 
-int part_portional_a = int.Parse(Console.ReadLine());
+string[] partsConfig = numberString.Split(',');
 
-Console.WriteLine("Введите делитель для второго среза (например что бы он занимал 1/5 введите 5)");
+int part_portional_a = int.Parse(partsConfig[0]);
+int part_portional_b = int.Parse(partsConfig[1]);
 
-int part_portional_b = int.Parse(Console.ReadLine());
-
-if(1.0 / part_portional_a + 1.0 / part_portional_b >= 1)
+if(part_portional_a + part_portional_b >= 100)
 {
     Console.WriteLine("Сумма частей превышает размер файла");
     Environment.Exit(0);
 }
 
-int part_size_a = fileContent.Length / part_portional_a;
-int part_size_b = fileContent.Length / part_portional_b;
-int part_size_c = 18;
+int part_size_a = fileContent.Length / 100 * part_portional_a / 2;
+int part_size_b = fileContent.Length / 100 * part_portional_b / 2;
+int part_size_c = 0;
 
 if (part_size_a + part_size_b < fileContent.Length)
 {
@@ -39,14 +52,8 @@ if (fileContent.Length % 2 != 0)
 string extension = Path.GetExtension(filePath);
 string combined = part_size_a.ToString() + "!" + part_size_b.ToString() + "!" + part_size_c.ToString() + "!" + reduce;
 // Сохранение информации в виде набора байт
-byte[] byteArray_1 = Encoding.UTF8.GetBytes(combined);
-byte[] byteArray = new byte[18];
-for(int i = 0; i <  byteArray.Length; i++)
-{
-    if(i <  byteArray_1.Length)
-        byteArray[i] = byteArray_1[i];
-    else byteArray[i] = 0;
-}
+byte[] byteArray = Encoding.UTF8.GetBytes(combined);
+
 int j = 0;
 // Представление файла в виде массивов байт
 byte[] data_1 = new byte[part_size_a];
@@ -109,7 +116,7 @@ for (int i = 0; i < data_4.Length; i++)
     }
 }
 
-byte[] data_5 = new byte[part_size_c - 18];
+byte[] data_5 = new byte[part_size_c];
 for (int i = 0; i < data_5.Length; i++)
 {
     if (j < fileContent.Length)
@@ -124,7 +131,7 @@ for (int i = 0; i < data_5.Length; i++)
     }
 }
 
-byte[] data_6 = new byte[part_size_c - 18];
+byte[] data_6 = new byte[part_size_c];
 
 for (int i = 0; i < data_6.Length; i++)
 {
@@ -165,39 +172,6 @@ for (int i = 0; i < data_56_parity.Length; i++)
     j++;
 }
 
-byte[] data_sypher_1 = new byte[byteArray.Length];
-j -= 18;
-for (int i = 0; i < byteArray.Length; i++)
-{
-    if (i < byteArray_1.Length)
-    {
-        data_sypher_1[i] = data_1_final[j];
-        j++;
-    }
-    else
-    {
-        data_sypher_1[i] = 0;
-        j++;
-    }
-}
-if (byteArray.Length < 18)
-    j += 18 - byteArray.Length;
-byte[] data_syphered_1 = SolveParity(byteArray, data_sypher_1);
-
-for (int i = 0; i < 18; i++)
-{
-    if (i < data_syphered_1.Length)
-    {
-        data_1_final[j] = data_syphered_1[i];
-        j++;
-    }
-    else
-    {
-        data_1_final[j] = 0;
-        j++;
-    }
-}
-
 byte[] data_2_final = new byte[part_size_a + part_size_b + part_size_c];
 j = 0;
 
@@ -219,39 +193,6 @@ for (int i = 0; i < data_5.Length; i++)
 {
     data_2_final[j] = data_5[i];
     j++;
-}
-
-byte[] data_sypher_2 = new byte[byteArray.Length];
-j -= 18;
-for (int i = 0; i < byteArray.Length; i++)
-{
-    if (i < byteArray_1.Length)
-    {
-        data_sypher_2[i] = data_2_final[j];
-        j++;
-    }
-    else
-    {
-        data_sypher_2[i] = 0;
-        j++;
-    }
-}
-if (byteArray.Length < 18)
-    j += 18 - byteArray.Length;
-byte[] data_syphered_2 = SolveParity(byteArray, data_sypher_2);
-
-for (int i = 0; i < 18; i++)
-{
-    if (i < data_syphered_2.Length)
-    {
-        data_2_final[j] = data_syphered_2[i];
-        j++;
-    }
-    else
-    {
-        data_2_final[j] = 0;
-        j++;
-    }
 }
 
 byte[] data_3_final = new byte[part_size_a + part_size_b + part_size_c];
@@ -277,42 +218,11 @@ for (int i = 0; i < data_6.Length; i++)
     j++;
 }
 
-byte[] data_sypher_3 = new byte[byteArray.Length];
-j -= 18;
-for (int i = 0; i < byteArray.Length; i++)
-{
-    if (i < byteArray_1.Length)
-    {
-        data_sypher_3[i] = data_3_final[j];
-        j++;
-    }
-    else
-    {
-        data_sypher_3[i] = 0;
-        j++;
-    }
-}
-if (byteArray.Length < 18)
-    j += 18 - byteArray.Length;
-byte[] data_syphered_3 = SolveParity(byteArray, data_sypher_3);
-
-for (int i = 0; i < 18; i++)
-{
-    if (i < data_syphered_3.Length)
-    {
-        data_3_final[j] = data_syphered_3[i];
-        j++;
-    }
-    else
-    {
-        data_3_final[j] = 0;
-        j++;
-    }
-}
 
 string dir = Directory.GetCurrentDirectory();
 
 // Сохранение разделенных файлов
+
 
 string fileName = Path.GetFileNameWithoutExtension(filePath);
 string cur_fileName = fileName + "_1";
